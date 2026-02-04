@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "buildOptions": {
+      "tsConfigPath": "tsconfig.build.json"
+    },
+    "assets": [
+      "libs/auth-vault/src/assets/**/*"
+    ],
+    "declaration": true,
+    "declarationMap": true,
+    "emitDecoratorOnly": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "stripInternal": true
+  },
+  "projects": {
+    "auth-vault": {
+      "type": "library",
+      "root": "libs/auth-vault",
+      "entryFile": "index",
+      "sourceRoot": "libs/auth-vault/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/auth-vault/tsconfig.lib.json"
+      }
+    }
+  }
+}

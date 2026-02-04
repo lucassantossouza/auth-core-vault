@@ -1,0 +1,1 @@
+export const AUTH_STRATEGIES_TOKEN = Symbol('AUTH_STRATEGIES');
