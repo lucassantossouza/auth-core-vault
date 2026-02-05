@@ -9,9 +9,6 @@ import { RefreshTokenApiResponse } from '../types/refresh-token-response.type';
 import { UserInfoApiResponse } from '../types/user-info-response.type';
 import { ValidateApiResponse } from '../types/validate-response.type';
 
-/** Identifier used to resolve a strategy (e.g. strategy name or "type:instance"). */
-export type AuthStrategyId = string;
-
 /**
  * Strategy contract for auth operations. Implement for Keycloak or custom IdPs.
  */

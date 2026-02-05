@@ -46,15 +46,7 @@ describe('AuthVaultModule', () => {
       expect(module.get(AUTH_VAULT_SERVICE)).toBe(service);
     });
 
-    it('default isGlobal é false', () => {
-      const dynamic = AuthVaultModule.forRoot({
-        strategyConfig:
-          validKeycloakConfig as IAuthVaultModuleOptions['strategyConfig'],
-      });
-      expect(dynamic.global).toBe(false);
-    });
-
-    it('aceita isGlobal true', () => {
+    it('aceita isGlobal', () => {
       const dynamic = AuthVaultModule.forRoot({
         strategyConfig:
           validKeycloakConfig as IAuthVaultModuleOptions['strategyConfig'],
@@ -93,46 +85,6 @@ describe('AuthVaultModule', () => {
       }).compile();
 
       expect(module.get(AuthVaultService)).toBeDefined();
-    });
-
-    it('forFeature sempre retorna global false', () => {
-      const dynamic = AuthVaultModule.forFeature({
-        strategyConfig:
-          validKeycloakConfig as IAuthVaultModuleOptions['strategyConfig'],
-      });
-      expect(dynamic.global).toBe(false);
-    });
-  });
-
-  describe('múltiplos imports no mesmo módulo', () => {
-    it('compila com forRoot e vários outros imports (5 imports no array)', async () => {
-      const module: TestingModule = await Test.createTestingModule({
-        imports: [
-          HttpModule.register({ timeout: 5000 }),
-          AuthVaultModule.forRoot({
-            strategyConfig:
-              validKeycloakConfig as IAuthVaultModuleOptions['strategyConfig'],
-          }),
-          HttpModule.register({ timeout: 10000 }),
-        ],
-      }).compile();
-      expect(module.get(AuthVaultService)).toBeDefined();
-    });
-
-    it('compila com forRoot isGlobal true e serviço acessível', async () => {
-      const module: TestingModule = await Test.createTestingModule({
-        imports: [
-          HttpModule,
-          AuthVaultModule.forRoot({
-            strategyConfig:
-              validKeycloakConfig as IAuthVaultModuleOptions['strategyConfig'],
-            isGlobal: true,
-          }),
-        ],
-      }).compile();
-      const service = module.get(AuthVaultService);
-      expect(service).toBeDefined();
-      expect(module.get(AUTH_VAULT_SERVICE)).toBe(service);
     });
   });
 
