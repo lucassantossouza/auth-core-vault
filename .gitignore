@@ -1,5 +1,7 @@
+libs/
 node_modules/
 dist/
+coverage/
 
 .env
 .env.*
