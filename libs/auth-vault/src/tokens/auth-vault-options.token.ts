@@ -1,1 +1,0 @@
-export const AUTH_VAULT_OPTIONS = 'AUTH_VAULT_OPTIONS';

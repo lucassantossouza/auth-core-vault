@@ -1,1 +1,0 @@
-export const AUTH_STRATEGY_CONFIG = Symbol('AUTH_STRATEGY_CONFIG');
