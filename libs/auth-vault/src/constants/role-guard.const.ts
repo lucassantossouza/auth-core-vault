@@ -1,1 +1,0 @@
-export const ROLE_GUARD_OPTIONS = Symbol('ROLE_GUARD_OPTIONS');
